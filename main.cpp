@@ -18,18 +18,39 @@ unsigned int djb2(std::string str) {
 
 int main() {
 	vector<int> vec1 = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	vector<string> vec01 = { "This", "is", " a string", "test" , "for binsearch" };
+	string sBin = "test";
+	string sBinFail = "watermelon";
 
-	cout << "If binSearch returns -1, element is not in vector:" << endl;
+	cout << "vector int: ";
+	for (int x = 0; x < vec1.size(); x++) {
+		cout << vec1[x] << " ";
+	}
+	cout << endl << "If binSearch returns -1, element is not in vector:" << endl;
 	cout << "vector int binsearch 4: " << binSearch(vec1, 4, 0) << endl;
 	cout << "vector int binsearch 8: " << binSearch(vec1, 8, 0) << endl;
-	cout << "vector int binsearch 10: " << binSearch(vec1, 10, 0) << endl << endl;
-	//change
+	cout << "vector int binsearch 10: " << binSearch(vec1, 10, 0) << endl;
+
+	cout << "vector string: ";
+	for (int x = 0; x < vec01.size(); x++) {
+		cout << "'" << vec01[x] << "' ";
+	}
+	cout << endl << "vector string binsearch: 'test': " << binSearch(vec01, sBin, 0) << endl;
+	cout << "vector string binsearch: 'watermelon': " << binSearch(vec01, sBinFail, 0) << endl << endl;
+
+
 
 	vector<int> vec2 = { 11, 6, 77, 8, 0, 22, 35, 100 };
 	vector<int> vec3;
 
 	vector<char> vec4 = { 'c', 'a', 'z', '0', '`', 'b' };
 	vector<char> vec5;
+
+	cout << "vec2 before sort: ";
+	for (int x = 0; x < vec2.size(); x++) {
+		cout << vec2[x] << " ";
+	}
+	cout << endl;
 
 	vec3 = QuickSort(vec2, vec3);
 	vec5 = QuickSort(vec4, vec5);
@@ -39,6 +60,12 @@ int main() {
 		cout << vec3[x] << " ";
 	}
 	cout << endl;
+
+	cout << "vec4 before sort: ";
+	for (int x = 0; x < vec4.size(); x++) {
+		cout << vec4[x] << " ";
+	}
+	cout << endl;
 	cout << "quick sort vec4: ";
 	for (int x = 0; x < vec5.size(); x++) {
 		cout << vec5[x] << " ";
@@ -46,7 +73,10 @@ int main() {
 	cout << endl;
 
 	vector<int> vec6 = { 2, 4, 1, 10, 2, 5, 22, 8, 7, 9 };
-
+	cout << "vec6 before merge sort: ";
+	for (int x = 0; x < vec6.size(); x++) {
+		cout << vec6[x] << " ";
+	}
 	cout << "merge sort vec6: ";
 
 	mergeSort(vec6, 0, vec6.size() - 1);

@@ -6,9 +6,9 @@ using std::vector;
 using std::hash;
 using std::string;
 
-template <class T, class T2>
+template <class T>
 
-int binSearch(vector<T> t1, T2 t2, int loop) {
+int binSearch(vector<T> t1, T t2, int loop) {
 	int counter = 0;
 	if(t1.size() > 1){
 		for (int x = 0; x < (t1.size() / 2); x++) {
