@@ -1,6 +1,10 @@
 #include <vector>
+#include <functional>
+#include <string>
 
 using std::vector;
+using std::hash;
+using std::string;
 
 template <class T, class T2>
 
@@ -96,4 +100,67 @@ vector<T> qSort(vector <T> vec, int L, int R) {
 	}
 
 	return vec;
+}
+
+template <class T>
+void mergeSort(vector<T>& t, int low, int high) {
+	int mid;
+	if (low<high)
+	{
+		mid = low + (high - low) / 2; //This avoids overflow when low, high are too large
+		mergeSort(t, low, mid);
+		mergeSort(t, mid + 1, high);
+		merge(t, low, mid, high);
+	}
+}
+template <class T>
+void merge(vector<T>& t, int low, int mid, int high) {
+	int h, i, j, k;
+	vector<T> temp = t;
+
+	h = low;
+	i = low;
+	j = mid + 1;
+
+	while ((h <= mid) && (j <= high))
+	{
+		if (t[h] <= t[j])
+		{
+			temp[i] = t[h];
+			h++;
+		}
+		else
+		{
+			temp[i] = t[j];
+			j++;
+		}
+		i++;
+	}
+	if (h>mid)
+	{
+		for (k = j; k <= high; k++)
+		{
+			temp[i] = t[k];
+			i++;
+		}
+	}
+	else
+	{
+		for (k = h; k <= mid; k++)
+		{
+			temp[i] = t[k];
+			i++;
+		}
+	}
+	for (k = low; k <= high; k++) t[k] = temp[k];
+}
+
+static int hashing(string s) {
+	hash<string> str_hash;
+	return str_hash(s);
+}
+
+static int hashing(int i) {
+	hash<int> int_hash;
+	return int_hash(i);
 }
