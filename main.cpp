@@ -139,8 +139,5 @@ int main() {
 		std::cout << "\t" + *iter + ": " << bf.searchElement(*iter) << std::endl;
 	}
 
-
-	int test;
-	cin >> test;
 	return 1;
 }
